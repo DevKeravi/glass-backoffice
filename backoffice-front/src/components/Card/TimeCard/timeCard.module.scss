@@ -1,0 +1,84 @@
+.time-card-container {
+  font-size: 2rem;
+  font-weight: 500;
+  height: 600px;
+  width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  .refresh-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    height: 30px;
+    width: 30px;
+    padding: 1rem;
+    border-radius: 5px;
+    backdrop-filter: blur(0px);
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    &.loading {
+      backdrop-filter: blur(15px);
+
+      svg {
+        animation-name: spinner;
+        animation-duration: 2000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+    }
+    .refresh-icon {
+    }
+  }
+  .time-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.8rem;
+    &.loading {
+      font-size: 1.4rem;
+    }
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+
+    .loading-title {
+      position: absolute;
+      transition: opacity 1.5s ease-out;
+      visibility: hidden;
+      opacity: 0;
+      &.loading {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    .main-title {
+      position: absolute;
+      transition: opacity 1.5s ease-out;
+      visibility: visible;
+      opacity: 1;
+      font-size: 1.5rem;
+      &.loading {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      &.large-text {
+        font-size: 1.8rem;
+      }
+    }
+  }
+  .time-card-content {
+  }
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
